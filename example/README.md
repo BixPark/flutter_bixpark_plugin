@@ -28,3 +28,23 @@ Add build.gradle
 apply plugin: 'com.google.gms.google-services'
 ```
 
+2. ### Add Google Firebase Messaging
+
+```dart
+class CloudMessageHandler extends FCMInterface {
+  @override
+  void onLaunch(Map<String, dynamic> message) {
+    log("Message On Example $message");
+  }
+
+  @override
+  void onMessage(Map<String, dynamic> message) {
+    log("Message On Example $message");
+  }
+
+  @override
+  void onResume(Map<String, dynamic> message) {
+    log("Message On Example $message");
+  }
+}
+```
