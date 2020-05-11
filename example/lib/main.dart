@@ -7,7 +7,7 @@ import 'package:flutter/services.dart';
 import 'package:bixpark/bixpark.dart';
 
 void main() {
-  runApp(MyApp());
+  Bixpark.init(app: MyApp());
 }
 
 class MyApp extends StatefulWidget {
@@ -81,6 +81,18 @@ class _MyAppState extends State<MyApp> {
                   onPressed: () {},
                   child: Text(
                     "Analytics",
+                    style: TextStyle(fontSize: 24),
+                  ),
+                ),
+                FlatButton(
+                  color: Colors.lime,
+                  onPressed: () {
+                    Crashlytics.instance.setString('foo', 'bar');
+                    Crashlytics.instance.log("Error Initiate");
+                    Crashlytics.instance.crash();
+                  },
+                  child: Text(
+                    "Crashlytics",
                     style: TextStyle(fontSize: 24),
                   ),
                 )

@@ -5,13 +5,12 @@ buildscript {
     ext.kotlin_version = '1.3.50'
     repositories {
         google()
-        jcenter()
+        jcenter() 
     }
 
     dependencies {
         classpath 'com.android.tools.build:gradle:3.5.0'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-        classpath 'com.google.gms:google-services:4.3.3'
     }
 }
 
@@ -43,4 +42,6 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"    
 
      compileOnly rootProject.findProject(":firebase_analytics")
+     compileOnly rootProject.findProject(":firebase_crashlytics")
+     compileOnly rootProject.findProject(":firebase_messaging")
 }
