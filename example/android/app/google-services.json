@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "187216985797",
+    "firebase_url": "https://bixpark-cloud-apps.firebaseio.com",
+    "project_id": "bixpark-cloud-apps",
+    "storage_bucket": "bixpark-cloud-apps.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:187216985797:android:16c646841c601ec92f3aac",
+        "android_client_info": {
+          "package_name": "app.ceylon.bixpark.bixpark_example"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "187216985797-ljdtrbigt85703vilig2dhqvrg5vj9no.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAeaBPu8Z08XeW-ovKHOOO5g-hENoDuJzw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "187216985797-ljdtrbigt85703vilig2dhqvrg5vj9no.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
