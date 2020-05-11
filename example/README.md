@@ -18,12 +18,13 @@ samples, guidance on mobile development, and a full API reference.
 ## Steps
 
 1. ### Add google services
-
+https://firebase.google.com/docs/android/setup
 Add google services build.gradle
+```
  classpath 'com.google.gms:google-services:4.3.3'
-
+```
 Add build.gradle
-
+```
 apply plugin: 'com.google.gms.google-services'
-
+```
 
