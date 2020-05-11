@@ -10,6 +10,7 @@ void main() {
   Bixpark.init(app: MyApp(), addMobAppId: "ca-app-pub-1813863267368130~7192739639");
 }
 
+
 class MyApp extends StatefulWidget {
   @override
   _MyAppState createState() => _MyAppState();

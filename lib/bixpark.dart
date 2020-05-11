@@ -14,6 +14,7 @@ export 'package:bixpark/src/widget/bix_park_ad_widget.dart';
 export 'package:bixpark/src/widget/bix_park_cloud_messaging.dart';
 export 'package:firebase_crashlytics/firebase_crashlytics.dart';
 export 'package:firebase_remote_config/firebase_remote_config.dart';
+export 'package:firebase_dynamic_links/firebase_dynamic_links.dart';
 
 class Bixpark {
   static const MethodChannel _channel = const MethodChannel('bixpark');
