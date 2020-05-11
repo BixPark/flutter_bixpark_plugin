@@ -63,6 +63,10 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
+    RemoteConfigBloc remoteConfigBloc = RemoteConfigProvider.of(context);
+    remoteConfigBloc.query.add(<String, dynamic>{
+      'welcome_message': "Default Message",
+    });
     return MaterialApp(
       home: BixParkPage(
         fcmInterface: CloudMessageHandler(),
@@ -95,7 +99,24 @@ class _MyAppState extends State<MyApp> {
                     "Crashlytics",
                     style: TextStyle(fontSize: 24),
                   ),
-                )
+                ),
+                StreamBuilder(
+                    stream: remoteConfigBloc.results,
+                    builder: (BuildContext context,
+                        AsyncSnapshot<RemoteConfig> snapshot) {
+                      log("Remote config ${snapshot.data}");
+                      if (!snapshot.hasData)
+                        return Container(
+                          child: Text("${snapshot.data}"),
+                        );
+
+                      RemoteConfig rc = snapshot.data;
+                      return Container(
+                        child: Center(
+                          child: Text(rc.getString("welcome_message")),
+                        ),
+                      );
+                    })
               ],
             ),
           ),

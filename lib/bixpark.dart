@@ -1,12 +1,17 @@
 import 'dart:async';
 
+import 'package:bixpark/src/bloc/provider/remote_config_bloc_provider.dart';
+import 'package:bixpark/src/bloc/remote_config_bloc.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 export "package:bixpark/bix_park_page.dart";
+export 'package:bixpark/src/bloc/bixpark_bloc.dart';
+
 export 'package:bixpark/src/widget/bix_park_cloud_messaging.dart';
 export 'package:firebase_crashlytics/firebase_crashlytics.dart';
+export 'package:firebase_remote_config/firebase_remote_config.dart';
 
 class Bixpark {
   static const MethodChannel _channel = const MethodChannel('bixpark');
@@ -26,7 +31,10 @@ class Bixpark {
     // Pass all uncaught errors to Crashlytics.
     FlutterError.onError = Crashlytics.instance.recordFlutterError;
     runZoned(() {
-      runApp(app);
+      runApp(RemoteConfigProvider(
+        child: app,
+        remoteConfigBloc: RemoteConfigBloc(),
+      ));
     }, onError: Crashlytics.instance.recordError);
   }
 }

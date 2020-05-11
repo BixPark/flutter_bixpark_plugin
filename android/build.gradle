@@ -44,4 +44,5 @@ dependencies {
      compileOnly rootProject.findProject(":firebase_analytics")
      compileOnly rootProject.findProject(":firebase_crashlytics")
      compileOnly rootProject.findProject(":firebase_messaging")
+     compileOnly rootProject.findProject(":firebase_remote_config")
 }

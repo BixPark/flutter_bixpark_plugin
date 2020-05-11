@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:bixpark/src/bloc/provider/remote_config_bloc_provider.dart';
 import 'package:bixpark/src/widget/bix_park_cloud_messaging.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
@@ -7,7 +8,10 @@ import 'package:flutter/material.dart';
 class BixParkPage extends StatefulWidget {
   final Widget child;
   final FCMInterface fcmInterface;
-  BixParkPage({Key key, this.child, this.fcmInterface}) : super(key: key);
+  final Map<String, dynamic> remoteConfigDefaults;
+  BixParkPage(
+      {Key key, this.child, this.fcmInterface, final this.remoteConfigDefaults})
+      : super(key: key);
 
   @override
   _BixParkPageState createState() => _BixParkPageState();
