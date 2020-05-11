@@ -4,10 +4,10 @@ import 'package:flutter/material.dart';
 import 'dart:async';
 
 import 'package:flutter/services.dart';
-import 'package:bixpark/bixpark.dart';
+import 'package:bixpark/bixpark.dart'; 
 
 void main() {
-  Bixpark.init(app: MyApp());
+  Bixpark.init(app: MyApp(), addMobAppId: "ca-app-pub-1813863267368130~7192739639");
 }
 
 class MyApp extends StatefulWidget {
@@ -116,7 +116,8 @@ class _MyAppState extends State<MyApp> {
                           child: Text(rc.getString("welcome_message")),
                         ),
                       );
-                    })
+                    }),
+                BixParkAdWidget(addCode: "ca-app-pub-3940256099942544/6300978111",)
               ],
             ),
           ),

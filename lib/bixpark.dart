@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:admob_flutter/admob_flutter.dart';
 import 'package:bixpark/src/bloc/provider/remote_config_bloc_provider.dart';
 import 'package:bixpark/src/bloc/remote_config_bloc.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
@@ -8,10 +9,12 @@ import 'package:flutter/services.dart';
 
 export "package:bixpark/bix_park_page.dart";
 export 'package:bixpark/src/bloc/bixpark_bloc.dart';
+export 'package:bixpark/src/widget/bix_park_ad_widget.dart';
 
 export 'package:bixpark/src/widget/bix_park_cloud_messaging.dart';
 export 'package:firebase_crashlytics/firebase_crashlytics.dart';
 export 'package:firebase_remote_config/firebase_remote_config.dart';
+
 
 class Bixpark {
   static const MethodChannel _channel = const MethodChannel('bixpark');
@@ -21,7 +24,9 @@ class Bixpark {
     return version;
   }
 
-  static void init({@required Widget app}) {
+  static void init({@required Widget app,String addMobAppId}) {
+    Admob.initialize(addMobAppId);
+
     // Set `enableInDevMode` to true to see reports while in debug mode
     // This is only to be used for confirming that reports are being
     // submitted as expected. It is not intended to be used for everyday
