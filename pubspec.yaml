@@ -11,7 +11,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter  
-  firebase_analytics: ^5.0.11
+  firebase_analytics: ^5.0.11 # Firebase Analytic apps
+  firebase_messaging: ^6.0.13 # firbease google cloud messaging
 
 dev_dependencies:
   flutter_test:

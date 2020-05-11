@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'dart:async';
 
@@ -11,6 +13,23 @@ void main() {
 class MyApp extends StatefulWidget {
   @override
   _MyAppState createState() => _MyAppState();
+}
+
+class CloudMessageHandler extends FCMInterface {
+  @override
+  void onLaunch(Map<String, dynamic> message) {
+    log("Message On Example $message");
+  }
+
+  @override
+  void onMessage(Map<String, dynamic> message) {
+    log("Message On Example $message");
+  }
+
+  @override
+  void onResume(Map<String, dynamic> message) {
+    log("Message On Example $message");
+  }
 }
 
 class _MyAppState extends State<MyApp> {
@@ -45,25 +64,28 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Plugin example app'),
-        ),
-        body: Center(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Text('Running on: $_platformVersion\n'),
-              FlatButton(
-                color: Colors.amber,
-                onPressed: () {},
-                child: Text(
-                  "Analytics",
-                  style: TextStyle(fontSize: 24),
-                ),
-              )
-            ],
+      home: BixParkPage(
+        fcmInterface: CloudMessageHandler(),
+        child: Scaffold(
+          appBar: AppBar(
+            title: const Text('Plugin example app'),
+          ),
+          body: Center(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Text('Running on: $_platformVersion\n'),
+                FlatButton(
+                  color: Colors.amber,
+                  onPressed: () {},
+                  child: Text(
+                    "Analytics",
+                    style: TextStyle(fontSize: 24),
+                  ),
+                )
+              ],
+            ),
           ),
         ),
       ),
