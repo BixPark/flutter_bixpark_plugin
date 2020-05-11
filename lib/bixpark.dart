@@ -15,7 +15,6 @@ export 'package:bixpark/src/widget/bix_park_cloud_messaging.dart';
 export 'package:firebase_crashlytics/firebase_crashlytics.dart';
 export 'package:firebase_remote_config/firebase_remote_config.dart';
 
-
 class Bixpark {
   static const MethodChannel _channel = const MethodChannel('bixpark');
 
@@ -24,7 +23,8 @@ class Bixpark {
     return version;
   }
 
-  static void init({@required Widget app,String addMobAppId}) {
+  static void init({@required Widget app, String addMobAppId}) {
+    WidgetsFlutterBinding.ensureInitialized();
     Admob.initialize(addMobAppId);
 
     // Set `enableInDevMode` to true to see reports while in debug mode
