@@ -29,8 +29,8 @@ Add google services build.gradle
     }
  dependencies {
         // Add the Crashlytics Gradle plugin.// Add fabric classpath
- classpath 'io.fabric.tools:gradle:1.26.1'
- classpath 'com.google.gms:google-services:4.3.3'
+        classpath 'io.fabric.tools:gradle:1.26.1'
+        classpath 'com.google.gms:google-services:4.3.3'
  }
 ```
 Add build.gradle
@@ -60,3 +60,64 @@ class CloudMessageHandler extends FCMInterface {
   }
 }
 ```
+
+## Example Main
+```dart
+import 'package:bixpark/bixpark.dart';
+import 'package:flutter/material.dart';
+import 'package:yummy_dish/src/fcm_helper.dart';
+
+void main() {
+  Bixpark.init(
+      app: MyApp(), addMobAppId: "ca-app-pub-1813863267368130~7504241577");
+}
+
+class MyApp extends StatelessWidget {
+  // This widget is the root of your application.
+  @override
+  Widget build(BuildContext context) {
+    return BixParkPage(
+      fcmInterface: FCMHandler(),
+      child: MaterialApp(
+        title: 'BixPark Demo',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+          visualDensity: VisualDensity.adaptivePlatformDensity,
+        ),
+        home: MyHomePage(title: 'Bix Park Demo Home Page'),
+      ),
+    );
+  }
+}
+
+class MyHomePage extends StatefulWidget {
+  MyHomePage({Key key, this.title}) : super(key: key);
+
+  final String title;
+
+  @override
+  _MyHomePageState createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(widget.title),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Text(
+              'You have pushed the button this many times:',
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+```
+
