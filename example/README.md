@@ -43,7 +43,7 @@ apply plugin: 'com.google.gms.google-services'
 2. ### Add Google Firebase Messaging
 
 ```dart
-class CloudMessageHandler extends FCMInterface {
+class FCMHandler extends FCMInterface {
   @override
   void onLaunch(Map<String, dynamic> message) {
     log("Message On Example $message");
@@ -69,7 +69,7 @@ import 'package:yummy_dish/src/fcm_helper.dart';
 
 void main() {
   Bixpark.init(
-      app: MyApp(), addMobAppId: "ca-app-pub-1813863267368130~7504241577");
+      app: MyApp(), addMobAppId: "ADMOB-APP-ID");
 }
 
 class MyApp extends StatelessWidget {
