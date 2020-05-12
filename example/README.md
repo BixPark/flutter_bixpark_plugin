@@ -21,10 +21,22 @@ samples, guidance on mobile development, and a full API reference.
 https://firebase.google.com/docs/android/setup
 Add google services build.gradle
 ```
+ repositories {
+        //
+         maven {
+            url 'https://maven.fabric.io/public'
+        }
+    }
+ dependencies {
+        // Add the Crashlytics Gradle plugin.// Add fabric classpath
+ classpath 'io.fabric.tools:gradle:1.26.1'
  classpath 'com.google.gms:google-services:4.3.3'
+ }
 ```
 Add build.gradle
 ```
+// Apply the Crashlytics Gradle plugin
+apply plugin: 'io.fabric'
 apply plugin: 'com.google.gms.google-services'
 ```
 
